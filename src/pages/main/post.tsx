@@ -88,7 +88,7 @@ export const Post = (props: Props)=>{
 
     
   return (
-    <div>
+    <div className='post'>
       <div className='title'> 
         <h1> {post.title} </h1>
       </div>
@@ -98,8 +98,10 @@ export const Post = (props: Props)=>{
 
       <div className='footer'>
         <p> @{post.username}</p>
-        <button onClick={hasUserLiked ? removeLike :  addLike}> {hasUserLiked ? <>&#9829;</> : <>&#9825;</>} </button>
-        {likes && <p> Likes: {likes?.length} </p>}
+        <div className='likes'>
+          <button onClick={hasUserLiked ? removeLike :  addLike}> {hasUserLiked ? <>&#9829;</> : <>&#9825;</>} </button>
+          {likes && <p> {likes?.length} likes </p>}
+        </div>
       </div>
     </div>
   );

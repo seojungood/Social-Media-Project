@@ -13,14 +13,15 @@ body{
   height: 80px;
   background-color: #71797E;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-end;
   margin-bottom: 20px;
 }
 
 .navbar .links {
   text-align: center;
-  margin: 0 50px 0 0;
+  margin: 0 50px 0 50px;
+  justify-content: center;
 }
 
 .links a{
@@ -33,7 +34,7 @@ body{
 
 .navbar .user{
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   margin: 0 50px 0 0;
 }
@@ -101,4 +102,35 @@ textarea{
 
 .submitForm:hover{
   cursor: pointer;
+}
+
+.mainpage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border: 2px solid #71797E;
+  margin: 0 0 10px 0;
+  padding: 30px 20px;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.likes{
+  display: flex;
+  flex-direction: row;
+}
+
+.likes button{
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
 }

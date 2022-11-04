@@ -19,6 +19,7 @@ export const Navbar = () =>{
         <Link to="/createpost"> Create Post </Link>
         }
       </div>
+      
     {/* Display Profile name and picture */}
       <div className="user">
         {/* Only display when logged in */}
