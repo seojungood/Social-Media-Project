@@ -1,8 +1,9 @@
 import {getDocs, collection} from 'firebase/firestore';
 import {db} from '../../config/firebase';
 import { useEffect, useState } from 'react';
+import { Post } from './post';
 
-interface Post {
+export  interface Post {
   id: string;
   userId: string;
   title: string;
@@ -27,7 +28,10 @@ export const Main = () =>{
   }, []);
 
   return (
-    <div>Home Page</div>
+    <div>
+      {postsList?.map((post) => <Post post={post}/>)}
+    </div>
   );
 };
 
+ 
