@@ -3,6 +3,7 @@ import {db} from '../../config/firebase';
 import { useEffect, useState } from 'react';
 import { Post } from './post';
 
+// Interface holding types of input for Post 
 export  interface Post {
   id: string;
   userId: string;
@@ -12,9 +13,12 @@ export  interface Post {
 }
 
 export const Main = () =>{
+  // PostsList will be Post[] or null 
   const [postsList, setPostsList] = useState<Post[] | null >(null);
+  // Reference to collection of posts in db
   const postsRef = collection(db, "posts");
 
+  // Gets all posts from the db through postsRef
   const getPosts = async () =>{
     const data = await getDocs(postsRef);
     //Set PostsList as array of info from data.doc 
@@ -23,6 +27,7 @@ export const Main = () =>{
     })) as Post[] );
   };
 
+  // Gets all posts when site is rendered
   useEffect(()=>{
     getPosts();
   }, []);
