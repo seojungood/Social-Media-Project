@@ -118,7 +118,7 @@ export const Post = (props: Props)=>{
 
       <div className='footer'>
         <p> @{post.username}</p>
-        <div className='likes'>ß
+        <div className='likes'>
           <button onClick={hasUserLiked ? removeLike :  addLike}> {hasUserLiked ? <>&#9829;</> : <>&#9825;</>} </button>
           {likes && <p> {likes?.length} likes </p>}
         </div>
