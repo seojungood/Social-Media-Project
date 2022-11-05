@@ -12,8 +12,7 @@ Simple Social Media app that uses Google's Firebase as its backend
 for any user authentication and data storage for posts and likes.
 Users can post posts with desired title and description and other 
 users can view the post and put a like on the post. (Am in the process
-of adding a comment section, image implementation for posts, and better 
-css formatting)
+of adding a comment section, image implementation for posts, better css formatting, main page shown to users regarding logged in/not logged in status, and messages sent when user tries to like post without logging in)
 
 ### Features
 
