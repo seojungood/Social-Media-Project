@@ -15,8 +15,9 @@ export const Login = () =>{
 
   return (
     <div className='loginPage'>
-        <img src='./img/googlelogo.png'/>
-        <button onClick={signInWithGoogle}> Sign In With Google </button>
+        <button onClick={signInWithGoogle}>  
+        <img src={require('../img/googlelogo.png')}/>
+        Sign In With Google </button>
     </div>
   );
 }
