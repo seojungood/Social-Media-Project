@@ -7,4 +7,3 @@ export const CreatePost = () =>{
     </div>
   );
 }
-// lil change
