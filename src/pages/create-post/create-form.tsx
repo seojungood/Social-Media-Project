@@ -6,10 +6,6 @@ import {db, auth} from '../../config/firebase';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-// Imports for uploading image
-import {storage} from '../../config/firebase';
-import {ref} from 'firebase/storage';
-import {v4} from 'uuid';
 
 // Interface to specify types of input for TS
 interface CreateFormData {
@@ -22,9 +18,6 @@ export const CreateForm = () =>{
   const [user] = useAuthState(auth);
   // Grab useNavigate to implement automatic link navigation
   const navigate = useNavigate();
-  // Grab images using useState 
-  const [imageUpload, setImageUpload] = useState<File | null >(null);
-
 
   // Schema specifying title and description content format
   const schema = yup.object().shape({
@@ -55,29 +48,13 @@ export const CreateForm = () =>{
     navigate('/');
   };
 
-  const uploadImage = () =>{
-    // If imageuploaded is null, just return nothing
-    if(imageUpload == null) return;
-    
-    const imageRef = ref(storage, `posts/${imageUpload.name + v4()}`);
-
-  };
-
   return (
     <form onSubmit={handleSubmit(onCreatePost)}>
       <input placeholder='Title...' {...register("title")}/>
       <p style={{color: "white"}}>{errors.title?.message}</p>
     
-      <input 
-        type='file' 
-        onChange={(event) => {
-          setImageUpload(event.target.files![0])
-        }} 
-      />
-      <button onClick={uploadImage}>Upload Image</button>
-
       <textarea placeholder='Description...'{...register("description")}/>
       <input type="submit" className='submitForm' />
     </form>
   );
-};
+}; 

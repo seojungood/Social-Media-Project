@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../../config/firebase';
 import { Post as IPost} from './main';
+import { postsRef } from './main';
 
 // Interface for types of components of Props
 interface Props {
@@ -20,6 +21,7 @@ interface Like{
 
 export const Post = (props: Props)=>{
   const {post} = props;
+  console.log(post);
 
   // Grabs user data from firebase
   const [user] = useAuthState(auth);
@@ -106,11 +108,26 @@ export const Post = (props: Props)=>{
       getLikes();
     },[]);
 
+    // // Function to delete the post
+    // const deletePost = async () => {
+    //   // Query to find the post with the given id
+    //   const postToDeleteQuery = query(postsRef, where("id", "==", post.id));
+    //   // Data from the post query
+    //   const postToDeleteData = await getDocs(postToDeleteQuery);
+    //   // Id of the post
+    //   const postId = postToDeleteData.docs[0].id;
+    //   // Putting the post inside doc
+    //   const postToDelete = doc(db, "posts", postId);
+    //   // Delete the post from doc
+    //   await deleteDoc(postToDelete);
+    // };
+
     
   return (
-    <div className='post'>
+    <div className='post'> 
       <div className='title'> 
         <h1> {post.title} </h1>
+        {/* <p className='deletepost' onClick={deletePost}>X</p> */}
       </div>
       <div className='body'>
         <p>{post.description}</p>

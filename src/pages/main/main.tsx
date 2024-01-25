@@ -39,4 +39,4 @@ export const Main = () =>{
   );
 };
 
- 
+export const postsRef = collection(db, "posts");
